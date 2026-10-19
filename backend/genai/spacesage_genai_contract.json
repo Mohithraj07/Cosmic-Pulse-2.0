@@ -1,0 +1,76 @@
+{
+  "project": "SpaceSage AI",
+  "module": "GenAI Reasoning Module",
+  "version": "1.0",
+  "purpose": "Analyze energy scenarios, provide contextual recommendations, and return safety decisions.",
+  "integration_status": "NOT_CONNECTED",
+  "supported_sources": [
+    "computer_vision",
+    "fixed_digital_twin",
+    "user_modified_digital_twin"
+  ],
+  "request_format": {
+    "source": "fixed_digital_twin",
+    "facility_type": "data_center",
+    "payload": {
+      "facility_id": "DC-DEMO-01",
+      "timestamp": "2026-10-16T10:00:00",
+      "equipment": [
+        {
+          "id": "server_01",
+          "power_kw": 10,
+          "state": "on",
+          "mission_critical": false
+        }
+      ]
+    },
+    "energy_scenario": {
+      "baseline_power_kw": 100,
+      "scenario_power_kw": 75,
+      "duration_hours": 2
+    },
+    "risk_level": "low",
+    "manual_override": false,
+    "critical_data_complete": true,
+    "schedule_conflict": false
+  },
+  "response_fields": [
+    "project",
+    "source",
+    "validation",
+    "energy_analysis",
+    "recommendation",
+    "automation",
+    "digital_twin_change",
+    "integration_status"
+  ],
+  "observed_response_fields": [
+    "project",
+    "source",
+    "automation",
+    "energy_analysis",
+    "recommendation",
+    "digital_twin_change",
+    "integration_status"
+  ],
+  "allowed_decisions": [
+    "AUTO_APPLY",
+    "REVIEW",
+    "BLOCK",
+    "HOLD"
+  ],
+  "safety_rules": [
+    "Manual override must take priority.",
+    "Incomplete or invalid critical data must not proceed.",
+    "Schedule conflicts must block optimization.",
+    "Mission-critical equipment requires review.",
+    "AUTO_APPLY is a simulated decision only; this module does not apply physical or Digital Twin changes.",
+    "Digital Twin changes are not applied by this module.",
+    "Energy savings are estimates, not verified measurements."
+  ],
+  "energy_estimate_evidence": "SIMULATED_ESTIMATE_NOT_MEASURED",
+  "optional_response_fields": [
+    "note",
+    "input_validation"
+  ]
+}

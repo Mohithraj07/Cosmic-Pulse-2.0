@@ -1,0 +1,22 @@
+
+/* Remove default white margins */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Make the page fill the browser area */
+html,
+body,
+#root {
+  width: 100%;
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* Set the overall background */
+body {
+  background-color: #080b18;
+}

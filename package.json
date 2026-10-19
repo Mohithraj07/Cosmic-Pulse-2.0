@@ -1,0 +1,37 @@
+{
+  "name": "cosmic-pulse",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Cosmic Pulse 2.0 / SpaceSage AI: dashboard, Digital Twin, Computer Vision and GenAI advisor in one project",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "backend": "node scripts/backend.mjs start",
+    "dev:all": "concurrently -k -n web,api -c cyan,magenta \"npm:dev\" \"npm:backend\"",
+    "setup:backend": "node scripts/backend.mjs setup",
+    "build": "vite build",
+    "preview": "vite preview",
+    "serve": "npm run build && npm run backend",
+    "typecheck": "tsc -p tsconfig.app.json",
+    "lint": "oxlint"
+  },
+  "dependencies": {
+    "@react-three/drei": "^10.7.9",
+    "@react-three/fiber": "^9.8.2",
+    "lucide-react": "^1.57.0",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "recharts": "^3.10.1",
+    "three": "^0.186.1"
+  },
+  "devDependencies": {
+    "@types/node": "^24.13.3",
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.7",
+    "@vitejs/plugin-react": "^6.1.1",
+    "concurrently": "^9.1.0",
+    "oxlint": "^1.81.0",
+    "typescript": "~6.0.2",
+    "vite": "^8.3.0"
+  }
+}

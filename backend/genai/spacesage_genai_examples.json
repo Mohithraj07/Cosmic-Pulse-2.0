@@ -1,0 +1,207 @@
+[
+  {
+    "scenario": "Scenario 1: Reduce server energy",
+    "request": {
+      "source": "fixed_digital_twin",
+      "payload": {
+        "facility_id": "DC-DEMO-01",
+        "timestamp": "2026-10-16T10:00:00",
+        "equipment": [
+          {
+            "id": "server_01",
+            "power_kw": 10,
+            "state": "on",
+            "mission_critical": false
+          }
+        ]
+      },
+      "energy_scenario": {
+        "baseline_power_kw": 100,
+        "scenario_power_kw": 75,
+        "duration_hours": 2
+      },
+      "risk_level": "low",
+      "facility_type": "data_center"
+    },
+    "response": {
+      "project": "SpaceSage AI",
+      "source": "fixed_digital_twin",
+      "validation": {
+        "valid": true,
+        "errors": []
+      },
+      "energy_analysis": {
+        "status": "ESTIMATE",
+        "baseline_power_kw": 100,
+        "scenario_power_kw": 75,
+        "potential_reduction_kw": 25,
+        "potential_reduction_percent": 25.0,
+        "duration_hours": 2,
+        "potential_energy_saved_kwh": 50,
+        "evidence": "SIMULATED_ESTIMATE_NOT_MEASURED"
+      },
+      "recommendation": "DATA CENTER: Review server utilization and consolidate eligible workloads. Consider approved sleep modes for idle non-critical servers. Maintain required cooling and redundancy.\nREVIEW REQUIRED: These are recommendations only. Preserve mission-critical operation and verify expected savings before authorizing any change.",
+      "automation": {
+        "decision": "REVIEW",
+        "reason": "Advisory-only prototype: review the proposal before any action. No equipment changes are authorized."
+      },
+      "digital_twin_change": null,
+      "note": "Analysis only. No Digital Twin or physical equipment was changed.",
+      "input_validation": {
+        "status": "VALIDATED",
+        "facility_id": "DC-DEMO-01",
+        "timestamp": "2026-10-16T10:00:00",
+        "equipment": [
+          {
+            "id": "server_01",
+            "power_kw": 10,
+            "state": "on",
+            "mission_critical": false
+          }
+        ]
+      },
+      "integration_status": "NOT_CONNECTED"
+    }
+  },
+  {
+    "scenario": "Scenario 2: Protect critical equipment",
+    "request": {
+      "source": "fixed_digital_twin",
+      "payload": {
+        "facility_id": "GS-DEMO-01",
+        "timestamp": "2026-10-16T10:00:00",
+        "equipment": [
+          {
+            "id": "transmitter_01",
+            "power_kw": 20,
+            "state": "on",
+            "mission_critical": true
+          },
+          {
+            "id": "server_01",
+            "power_kw": 10,
+            "state": "on",
+            "mission_critical": false
+          },
+          {
+            "id": "cooling_01",
+            "power_kw": 8,
+            "state": "on",
+            "mission_critical": false
+          }
+        ]
+      },
+      "energy_scenario": {
+        "baseline_power_kw": 100,
+        "scenario_power_kw": 75,
+        "duration_hours": 2
+      },
+      "risk_level": "low",
+      "facility_type": "ground_station"
+    },
+    "response": {
+      "project": "SpaceSage AI",
+      "source": "fixed_digital_twin",
+      "validation": {
+        "valid": true,
+        "errors": []
+      },
+      "energy_analysis": {
+        "status": "ESTIMATE",
+        "baseline_power_kw": 100,
+        "scenario_power_kw": 75,
+        "potential_reduction_kw": 25,
+        "potential_reduction_percent": 25.0,
+        "duration_hours": 2,
+        "potential_energy_saved_kwh": 50,
+        "evidence": "SIMULATED_ESTIMATE_NOT_MEASURED"
+      },
+      "recommendation": "GROUND STATION: Compare equipment demand with approved satellite pass schedules. Evaluate standby only for eligible non-critical equipment while preserving communication readiness.\nREVIEW REQUIRED: These are recommendations only. Preserve mission-critical operation and verify expected savings before authorizing any change.",
+      "automation": {
+        "decision": "REVIEW",
+        "reason": "Mission-critical equipment requires review."
+      },
+      "digital_twin_change": null,
+      "note": "Analysis only. No Digital Twin or physical equipment was changed.",
+      "input_validation": {
+        "status": "VALIDATED",
+        "facility_id": "GS-DEMO-01",
+        "timestamp": "2026-10-16T10:00:00",
+        "equipment": [
+          {
+            "id": "transmitter_01",
+            "power_kw": 20,
+            "state": "on",
+            "mission_critical": true
+          },
+          {
+            "id": "server_01",
+            "power_kw": 10,
+            "state": "on",
+            "mission_critical": false
+          },
+          {
+            "id": "cooling_01",
+            "power_kw": 8,
+            "state": "on",
+            "mission_critical": false
+          }
+        ]
+      },
+      "integration_status": "NOT_CONNECTED"
+    }
+  },
+  {
+    "scenario": "Scenario 3: Schedule conflict",
+    "request": {
+      "source": "fixed_digital_twin",
+      "payload": {
+        "facility_id": "GS-DEMO-01",
+        "timestamp": "2026-10-16T10:00:00",
+        "equipment": [
+          {
+            "id": "transmitter_01",
+            "power_kw": 20,
+            "state": "on",
+            "mission_critical": true
+          },
+          {
+            "id": "server_01",
+            "power_kw": 10,
+            "state": "on",
+            "mission_critical": false
+          },
+          {
+            "id": "cooling_01",
+            "power_kw": 8,
+            "state": "on",
+            "mission_critical": false
+          }
+        ]
+      },
+      "energy_scenario": {
+        "baseline_power_kw": 100,
+        "scenario_power_kw": 75,
+        "duration_hours": 2
+      },
+      "schedule_conflict": true,
+      "facility_type": "ground_station"
+    },
+    "response": {
+      "project": "SpaceSage AI",
+      "source": "fixed_digital_twin",
+      "validation": {
+        "valid": true,
+        "errors": []
+      },
+      "energy_analysis": null,
+      "recommendation": "BLOCKED: Resolve the schedule conflict and validate the operating window before considering optimization.",
+      "automation": {
+        "decision": "BLOCK",
+        "reason": "A schedule conflict was reported."
+      },
+      "digital_twin_change": null,
+      "integration_status": "NOT_CONNECTED"
+    }
+  }
+]

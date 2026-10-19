@@ -1,0 +1,10 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    { "label": "Cosmic Pulse: run everything", "type": "npm", "script": "dev:all", "isBackground": true, "problemMatcher": [], "group": { "kind": "build", "isDefault": true } },
+    { "label": "Cosmic Pulse: install frontend", "type": "npm", "script": "install", "problemMatcher": [] },
+    { "label": "Cosmic Pulse: install backend (Python)", "type": "npm", "script": "setup:backend", "problemMatcher": [] },
+    { "label": "Cosmic Pulse: web only", "type": "npm", "script": "dev", "isBackground": true, "problemMatcher": [] },
+    { "label": "Cosmic Pulse: API only", "type": "npm", "script": "backend", "isBackground": true, "problemMatcher": [] }
+  ]
+}
